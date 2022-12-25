@@ -7,6 +7,7 @@ namespace Nhom07.Models
     {
         public int ID { get; set; }
 
+
         [DisplayName("Tên sản phẩm")]
         [Required(ErrorMessage = "{0} không được bỏ trống")]
         public string TenSP { get; set; }
