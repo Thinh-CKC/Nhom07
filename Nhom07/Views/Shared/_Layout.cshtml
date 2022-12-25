@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Nhom07</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/themify-icons.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/nice-select.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/jquery-ui.min.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" asp-append-version="true">
+</head>
+<body>
+    <header class="header-section">
+        <div class="container">
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="index.html">THEWATCHSHOP</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7">
+                        <div class="advanced-search">
+                            <div class="input-group">
+                                <input type="text" placeholder="What do you need?">
+                                <button type="button"><i class="ti-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 text-right">
+                        <ul class="nav-right">
+                            <li class="heart-icon">
+                                <a href="#">
+                                    <i class="icon_heart_alt"></i>
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="cart-icon ml-5">
+                                <a href="#">
+                                    <i class="icon_bag_alt"></i>
+                                    <span>2</span>
+                                </a>
+                                <div class="cart-hover">
+                                    <div class="select-items">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="si-pic">
+                                                        <img src="Gsockpic/2.jpg" height="100" alt="">
+                                                    </td>
+                                                    <td class="si-text">
+                                                        <div class="product-select">
+                                                            <p>100.000 vnđ x 1</p>
+                                                            <h6>casio gshock</h6>
+                                                        </div>
+                                                    </td>
+                                                    <td class="si-close">
+                                                        <i class="si-close"></i>
+                                                    </td>
+                                                <tr>
+                                                    <td class="si-pic">
+                                                        <img src="Gsockpic/2.jpg" height="100" alt="">
+                                                    </td>
+                                                    <td class="si-text">
+                                                        <div class="product-select">
+                                                            <p>100.000 vnđ x 1</p>
+                                                            <h6>casio gshock</h6>
+                                                        </div>
+                                                    </td>
+                                                    <td class="si-close">
+                                                        <i class="si-close"></i>
+                                                    </td>
+                                                </tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="selected-total">
+                                        <span>total:</span>
+                                        <h5>5.000.000</h5>
+                                    </div>
+                                    <div class="select-button">
+                                        <a href="shopping-cart.html" class="primary-btn view-card">VIEW CART</a>
+                                        <a href="check-out.html" class="primary-btn check-out">CHECK OUT</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="cart-icon ml-5">
+                                <a href="login.html" class="login-panel"><i class="fa fa-user-o"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            <div class="container">
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="">Home</a></li>
+                        <li class=""><a href="">Shop</a></li>
+                        <li>
+                            <a href="">Brands</a>
+                            <ul class="dropdown">
+                                <li><a href="">CASIO</a></li>
+                                <li><a href="">SEIKO</a></li>
+                                <li><a href="">CITIZEN</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Contact</a>
+                        <li>
+                            <a href="">More</a>
+                            <ul class="dropdown">
+                                <li><a href="">Shopping Cart</a></li>
+                                <li><a href="">Checkout</a></li>
+                                <li><a href="">Resister</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-warp"></div>
+            </div>
+        </div>
+    </header>
+    
+    @RenderBody()
+        
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-left">
+                        <div class="logo">
+                            <a href="index.html">THEWATCHSHOP</a>
+                        </div>
+                        <ul>
+                            <li>45 Nam Kỳ Khởi Nghĩa ' TP HCM</li>
+                            <li>Phone: +84 327558930</li>
+                            <li>Email: anhdz@gmail.com </li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitch"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>
+                            Infomation
+                        </h5>
+                        <ul>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Checkout</a></li>
+                            <li><a href="">Contact</a></li>
+                            <li><a href="">Serivius</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-widget">
+                        <h5>
+                            My Account
+                        </h5>
+                        <ul>
+                            <li><a href="">My Account</a></li>
+                            <li><a href="">Contact</a></li>
+                            <li><a href="">Shopping Cart</a></li>
+                            <li><a href="">Shop</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="newslatter-item">
+                        <h5>
+                            Join Our Newsletter Now
+                        </h5>
+                        <p>
+                            Get E-mail updates about our latest shop and special offers.
+                        </p>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" placeholder="Enter Your Mail">
+                            <button type="button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-reserved">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text">
+                            <script>document.write(new date().getFullYear());</script>
+                        </div>
+                        <div class="payment-pic">
+                            <img src="img/payment-method.png" alt="">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/jquery.countdown.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <script src="~/js/jquery.zoom.min.js"></script>
+    <script src="~/js/jquery.dd.min.js"></script>
+    <script src="~/js/jquery.slicknav.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
