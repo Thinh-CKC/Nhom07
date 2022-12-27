@@ -1,0 +1,114 @@
+﻿@{
+	ViewData["Title"] = "Edit";
+	Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="app-main__inner">
+	<div class="app-page-title">
+		<div class="page-title-wrapper">
+			<div class="page-title-heading">
+				<div>
+					<div class="text-uppercase font-bold">Chỉnh sửa sản phẩm</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="main-card mb-3 card">
+				<div class="card-body">
+					<form method="post" enctype="multipart/form-data">
+						<div class="position-relative row form-group">
+							<label for="name" class="col-md-3 text-md-right col-form-label">
+								Tên sản phẩm
+							</label>
+							<div class="col-md-9 col-xl-8">
+								<input required name="name" id="name" placeholder="Tên sản phẩm" type="text" class="form-control" value="">
+							</div>
+						</div>
+						<div class="position-relative row form-group">
+							<label for="product_category_id" class="col-md-3 text-md-right col-form-label">Loại</label>
+							<div class="col-md-9 col-xl-8">
+								<select required name="product_category_id" id="product_category_id"
+										class="form-control">
+									<option value="">-- Loại --</option>
+									<option value=0>
+										Nam
+									</option>
+									<option value=1>
+										Nữ
+									</option>
+									<option value=2>
+										Khác
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="position-relative row form-group">
+							<label for="price" class="col-md-3 text-md-right col-form-label">Giá</label>
+							<div class="col-md-9 col-xl-8">
+								<input required name="price" id="price" placeholder="Giá" type="text" class="form-control" value="">
+							</div>
+						</div>
+						<div class="position-relative row form-group">
+							<label for="quantity" class="col-md-3 text-md-right col-form-label">
+								Số lượng
+							</label>
+							<div class="col-md-9 col-xl-8">
+								<input required name="quantity" id="quantity" placeholder="Số lượng" type="number" class="form-control" value="1">
+							</div>
+						</div>
+						<div class="position-relative row form-group">
+							<label for="color" class="col-md-3 text-md-right col-form-label">
+								Màu
+							</label>
+							<div class="col-md-9 col-xl-8">
+								<input required name="color" id="color" placeholder="Màu" type="text" class="form-control" value="">
+							</div>
+						</div>
+						<div class="position-relative row form-group">
+							<label for="size" class="col-md-3 text-md-right col-form-label">
+								Kích thước
+							</label>
+							<div class="col-md-9 col-xl-8">
+								<input required name="size" id="size" placeholder="Kích thước" type="text" class="form-control" value="">
+							</div>
+						</div>
+						<div class="position-relative row form-group">
+							<label for="surface" class="col-md-3 text-md-right col-form-label">
+								Mặt kính
+							</label>
+							<div class="col-md-9 col-xl-8">
+								<input required name="surface" id="surface" placeholder="Mặt kính" type="text" class="form-control" value="">
+							</div>
+						</div>
+						<div class="position-relative row form-group">
+							<label for="strap" class="col-md-3 text-md-right col-form-label">
+								Dây đeo
+							</label>
+							<div class="col-md-9 col-xl-8">
+								<input required name="strap" id="strap" placeholder="Dây đeo" type="text" class="form-control" value="">
+							</div>
+						</div>
+						<div class="position-relative row form-group mb-1">
+							<div class="col-md-9 col-xl-8 offset-md-2">
+								<button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
+									<span class="btn-icon-wrapper pr-2 opacity-8">
+										<i class="fa fa-download fa-w-20"></i>
+									</span>
+									<span>Lưu</span>
+								</button>
+								<a asp-area="Admin" asp-controller="Product" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+									<span class="btn-icon-wrapper pr-1 opacity-8">
+										<i class="fa fa-times fa-w-20"></i>
+									</span>
+									<span>Hủy</span>
+								</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
