@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div>
+                    <div class="text-uppercase font-bold">Chi tiết sản phẩm</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body display_data">
+                    <div class="position-relative row form-group">
+                        <label for="" class="col-md-3 text-md-right col-form-label">Hình ảnh</label>
+                        <div class="col-md-9 col-xl-8">
+                            <ul class="text-nowrap overflow-auto" id="images">
+                                <li class="d-inline-block mr-1" style="position: relative;">
+                                    <img style="height: 150px;" src="~/img/products/1.jpg"
+                                         alt="Image">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="brand_id" class="col-md-3 text-md-right col-form-label">Hình sản phảm</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p><a asp-area="Admin" asp-controller="Product" asp-action="Image">Quản lý hình ảnh</a></p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="name"
+                               class="col-md-3 text-md-right col-form-label">Tên sản phẩm</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>G-SHOCK GAE-2100WE-3A</p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="product_category_id"
+                               class="col-md-3 text-md-right col-form-label">Loại</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>Nam</p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="quantity" class="col-md-3 text-md-right col-form-label">Số lượng</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>20</p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="price" class="col-md-3 text-md-right col-form-label">Giá</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>5.290.400</p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="color" class="col-md-3 text-md-right col-form-label">Màu</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>Đen , Vàng</p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="size" class="col-md-3 text-md-right col-form-label">Kích thước</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>45.4mm</p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="surface" class="col-md-3 text-md-right col-form-label">Mặt kính</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>Mặt kính khoáng</p>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="strap" class="col-md-3 text-md-right col-form-label">Dây đeo</label>
+                        <div class="col-md-9 col-xl-8">
+                            <p>Dây đeo bằng nhựa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

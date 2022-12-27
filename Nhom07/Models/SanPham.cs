@@ -18,6 +18,12 @@ namespace Nhom07.Models
         [DisplayName("Loại sản phẩm")]
         public LoaiSanPham LoaiSanPham { get; set; }
 
+        [DisplayName("Mặt kính")]
+        public string MatKinh { get; set; }
+
+        [DisplayName("Loại dây")]
+        public string LoaiDay { get; set; }
+
         [DisplayName("Size")]
         public string Size { get; set; }
         
@@ -38,11 +44,6 @@ namespace Nhom07.Models
         public List<GioHang> GioHangs { get; set; }
 
         // Collection navigation property cho khóa ngoại từ ChiTietHoaDon
-        public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-
-        // Collection navigation property cho khóa ngoại từ ChiTietSanPham
-        public List<ChiTietSanPham> ChiTietSanPhams { get; set; }
-
- 
+        public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }         
     }
 }
