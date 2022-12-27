@@ -18,20 +18,23 @@ namespace Nhom07.Models
         [DisplayName("Loại sản phẩm")]
         public LoaiSanPham LoaiSanPham { get; set; }
 
+        [DisplayName("Size")]
+        public string Size { get; set; }
+
+        [DisplayName("Màu sắc")]
+        public string MauSac { get; set; }
+
+        [DisplayName("Tồn kho")]
+        public int TonKho { get; set; }
+
         [DisplayName("Mặt kính")]
         public string MatKinh { get; set; }
 
         [DisplayName("Loại dây")]
         public string LoaiDay { get; set; }
 
-        [DisplayName("Size")]
-        public string Size { get; set; }
-        
-        [DisplayName("Màu sắc")]
-        public string MauSac { get; set; }
-
-        [DisplayName("Tồn kho")]
-        public int TonKho { get; set; }
+        [DisplayName("Hình ảnh")]
+        public string Anh { get; set; }
 
         [DisplayName("Giá")]
         [DisplayFormat(DataFormatString = "{0:n0}")]
@@ -44,6 +47,9 @@ namespace Nhom07.Models
         public List<GioHang> GioHangs { get; set; }
 
         // Collection navigation property cho khóa ngoại từ ChiTietHoaDon
-        public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }         
+        public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+
+        // Collection navigation property cho khóa ngoại từ ChiTietSanPham
+        public List<HinhAnh> HinhAnhs { get; set; }
     }
 }
