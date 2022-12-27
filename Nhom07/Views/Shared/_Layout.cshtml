@@ -91,7 +91,16 @@
                                 </div>
                             </li>
                             <li class="cart-icon ml-5">
-                                <a href="login.html" class="login-panel"><i class="fa fa-user-o"></i></a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                    <a href="/logout" class="login-panel"><i class="fa fa-user-o"></i>Logout</a>
+                            }
+                            else
+                            {
+                                    <a href="/login" class="login-panel"><i class="fa fa-user-o"></i>Login</a>
+
+                            }
+                               
                             </li>
                         </ul>
                     </div>
@@ -227,5 +236,6 @@
     <script src="~/js/main.js"></script>
     @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Styles", required: false)
 </body>
 </html>

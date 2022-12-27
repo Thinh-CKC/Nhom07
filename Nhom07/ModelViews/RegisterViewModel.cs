@@ -15,14 +15,14 @@ namespace Nhom07.ModelViews
         [MaxLength(150)]
         [Required(ErrorMessage ="Vui lòng nhập Email")]
         [DataType(DataType.EmailAddress)]
-        [Remote(action:"ValidateEmail", controller:"Accounts")]
+     
         public string Email { get; set; }
 
         [MaxLength(11)]
         [Required(ErrorMessage ="Vui lòng nhập số điện thoại")]
         [Display(Name ="Điện thoại")]
         [DataType(DataType.PhoneNumber)]
-        [Remote(action:"ValidatePhone",controller:"Accounts")]
+   
         public string SDT { get; set; }
 
         [Display(Name = "Địa chỉ")]
