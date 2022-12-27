@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nhom07.Models;
+using Nhom7.Data;
 using System.Diagnostics;
 
 namespace Nhom07.Controllers
@@ -7,13 +8,31 @@ namespace Nhom07.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private Nhom7Context _context;
+        public HomeController(Nhom7Context context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
+
+
         public IActionResult Index()
+        {
+
+            var men = _context.SanPhams.Where(x => x.NoiBat == true).Where(x => x.ID_LoaiSP == 1).ToList();
+            var women = _context.SanPhams.Where(x => x.NoiBat == true).Where(x => x.ID_LoaiSP == 2).ToList();
+            var product = _context.SanPhams.ToList();
+            ViewBag.men=men;
+            ViewBag.women=women;
+
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        public IActionResult About()
         {
             return View();
         }

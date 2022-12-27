@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="index.html">THEWATCHSHOP</a>
+                            <a href="/">THEWATCHSHOP</a>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7">
@@ -51,7 +51,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="si-pic">
-                                                        <img src="Gsockpic/2.jpg" height="100" alt="">
+                                                        <img src="~/img/products/1.jpg" height="100" alt="">
                                                     </td>
                                                     <td class="si-text">
                                                         <div class="product-select">
@@ -64,7 +64,7 @@
                                                     </td>
                                                 <tr>
                                                     <td class="si-pic">
-                                                        <img src="Gsockpic/2.jpg" height="100" alt="">
+                                                        <img src="~/img/products/2.jpg" height="100" alt="">
                                                     </td>
                                                     <td class="si-text">
                                                         <div class="product-select">
@@ -102,8 +102,8 @@
             <div class="container">
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="">Home</a></li>
-                        <li class=""><a href="">Shop</a></li>
+                        <li class=""><a href="/">Home</a></li>
+                        <li class=""><a href="/Shop">Shop</a></li>
                         <li>
                             <a href="">Brands</a>
                             <ul class="dropdown">
@@ -112,7 +112,7 @@
                                 <li><a href="">CITIZEN</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Contact</a>
+                        <li><a asp-controller="Home" asp-action="Contact">Contact</a>
                         <li>
                             <a href="">More</a>
                             <ul class="dropdown">
@@ -209,6 +209,9 @@
             </div>
         </div>
     </footer>
+
+
+
     <script src="~/js/jquery-3.3.1.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/jquery-ui.min.js"></script>
@@ -218,7 +221,11 @@
     <script src="~/js/jquery.dd.min.js"></script>
     <script src="~/js/jquery.slicknav.js"></script>
     <script src="~/js/owl.carousel.min.js"></script>
+
+
+
     <script src="~/js/main.js"></script>
+    @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

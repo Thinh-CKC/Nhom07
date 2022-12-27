@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nhom07.Models;
+using Nhom07.ModelViews;
 
 namespace Nhom7.Data
 {
@@ -15,7 +16,8 @@ namespace Nhom7.Data
         public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<HoaDon> HoaDons { get; set; }
         public DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public DbSet<ChiTietSanPham> ChiTietSanPhams { get; set; }
+        public DbSet<Nhom07.ModelViews.RegisterViewModel> RegisterViewModel { get; set; }
+
 
     }
 }
