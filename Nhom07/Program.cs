@@ -1,9 +1,21 @@
+using Nhom7.Data;
+using Microsoft.EntityFrameworkCore;
+using AspNetCoreHero.ToastNotification;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<Nhom7Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Nhom7")));
 
+builder.Services.AddNotyf(config =>
+{
+    config.DurationInSeconds = 3;
+    config.IsDismissable = true;
+    config.Position = NotyfPosition.TopRight;
+});
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

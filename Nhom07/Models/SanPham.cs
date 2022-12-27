@@ -7,6 +7,7 @@ namespace Nhom07.Models
     {
         public int ID { get; set; }
 
+
         [DisplayName("Tên sản phẩm")]
         [Required(ErrorMessage = "{0} không được bỏ trống")]
         public string TenSP { get; set; }
@@ -27,6 +28,14 @@ namespace Nhom07.Models
         [DisplayName("Tồn kho")]
         public int TonKho { get; set; }
 
+        [DisplayName("Mặt kính")]
+        public string MatKinh { get; set; }
+
+        [DisplayName("Loại dây")]
+        public string LoaiDay { get; set; }
+        [DisplayName("Hình ảnh")]
+        public string Anh { get; set; }
+
         [DisplayName("Giá")]
         [DisplayFormat(DataFormatString = "{0:n0}")]
         public int Gia { get; set; }
@@ -41,8 +50,8 @@ namespace Nhom07.Models
         public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 
         // Collection navigation property cho khóa ngoại từ ChiTietSanPham
-        public List<ChiTietSanPham> ChiTietSanPhams { get; set; }
+     
+        public List<HinhAnh> HinhAnhs { get; set; }
 
- 
     }
 }

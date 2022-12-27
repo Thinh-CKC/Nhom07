@@ -2239,40 +2239,77 @@ ol {
 }
 
 .product-details .pd-size-choose {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
-.product-details .pd-size-choose .sc-item {
-	display: inline-block;
-	margin-right: 5px;
+	.product-details .pd-size-choose .sc-item {
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+		.product-details .pd-size-choose .sc-item:last-child {
+			margin-right: 0;
+		}
+
+		.product-details .pd-size-choose .sc-item input {
+			position: absolute;
+			visibility: hidden;
+		}
+
+		.product-details .pd-size-choose .sc-item label {
+			font-size: 16px;
+			color: #252525;
+			font-weight: 700;
+			height: 40px;
+			width: 200px;
+			border: 1px solid #ebebeb;
+			text-align: center;
+			line-height: 40px;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+
+			.product-details .pd-size-choose .sc-item label.active {
+				background: #252525;
+				color: #ffffff;
+			}
+.product-details .pd-face-choose {
+	margin-bottom: 10px;
 }
 
-.product-details .pd-size-choose .sc-item:last-child {
-	margin-right: 0;
-}
+	.product-details .pd-face-choose .sc-item {
+		display: inline-block;
+		margin-right: 5px;
+	}
 
-.product-details .pd-size-choose .sc-item input {
-	position: absolute;
-	visibility: hidden;
-}
+		.product-details .pd-face-choose .sc-item:last-child {
+			margin-right: 0;
+		}
 
-.product-details .pd-size-choose .sc-item label {
-	font-size: 16px;
-	color: #252525;
-	font-weight: 700;
-	height: 40px;
-	width: 47px;
-	border: 1px solid #ebebeb;
-	text-align: center;
-	line-height: 40px;
-	text-transform: uppercase;
-	cursor: pointer;
-}
+		.product-details .pd-face-choose .sc-item input {
+			position: absolute;
+			visibility: hidden;
+		}
 
-.product-details .pd-size-choose .sc-item label.active {
-	background: #252525;
-	color: #ffffff;
-}
+		.product-details .pd-face-choose .sc-item label {
+			font-size: 16px;
+			color: #252525;
+			font-weight: 700;
+			height: 40px;
+			width: 100px;
+			border: 1px solid #ebebeb;
+			text-align: center;
+			line-height: 40px;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+
+			.product-details .pd-face-choose .sc-item label.active {
+				background: #252525;
+				color: #ffffff;
+			}
+
+
 
 .product-details .quantity {
 	display: -webkit-box;
