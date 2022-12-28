@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Nhom07.Migrations
 {
-    public partial class intit : Migration
+    public partial class BANDONGHO : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,17 +23,34 @@ namespace Nhom07.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RegisterViewModel",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HoTen = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RegisterViewModel", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TaiKhoans",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HoTen = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SDT = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -212,6 +229,9 @@ namespace Nhom07.Migrations
 
             migrationBuilder.DropTable(
                 name: "HinhAnhs");
+
+            migrationBuilder.DropTable(
+                name: "RegisterViewModel");
 
             migrationBuilder.DropTable(
                 name: "HoaDons");

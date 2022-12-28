@@ -1,4 +1,4 @@
-﻿
+﻿@model TaiKhoan
 @{
     ViewData["Title"] = "Detail";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -16,58 +16,45 @@
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
-                <div class="card-body display_data">
-                    <div class="position-relative row form-group">
-                        <label for="image" class="col-md-3 text-md-right col-form-label">
-                            Ảnh đại
-                            diện
-                        </label>
-                        <div class="col-md-9 col-xl-8">
-                            <p>
-                                <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
-                                     title="Avatar" data-placement="bottom"
-                                     src="~/admin/images/_default-user.png" alt="Avatar">
-                            </p>
-                        </div>
-                    </div>
+                <div class="card-body display_data">                    
                     <div class="position-relative row form-group">
                         <label for="name" class="col-md-3 text-md-right col-form-label">
-                            Họ tên
+                            @Html.DisplayNameFor(model => model.HoTen)
                         </label>
                         <div class="col-md-9 col-xl-8">
-                            <p>Nguyễn Văn A</p>
+                            <p>@Html.DisplayFor(model => model.HoTen)</p>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="email" class="col-md-3 text-md-right col-form-label">Email</label>
+                        <label for="email" class="col-md-3 text-md-right col-form-label">
+                            @Html.DisplayNameFor(model => model.Email)
+                        </label>
                         <div class="col-md-9 col-xl-8">
-                            <p>nguyenvana@gmail.com</p>
+                            <p>@Html.DisplayFor(model => model.Email)</p>
                         </div>
                     </div>
-
                     <div class="position-relative row form-group">
                         <label for="phone" class="col-md-3 text-md-right col-form-label">
-                            Số điện
-                            thoại
+                            @Html.DisplayNameFor(model => model.SDT)
                         </label>
                         <div class="col-md-9 col-xl-8">
-                            <p>0123456789</p>
+                            <p>@Html.DisplayFor(model => model.SDT)</p>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
                         <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                            Địa chỉ
+                            @Html.DisplayNameFor(model => model.DiaChi)
                         </label>
                         <div class="col-md-9 col-xl-8">
-                            <p>Huỳnh Thúc Kháng, Q1, TP HCM</p>
+                            <p>@Html.DisplayFor(model => model.DiaChi)</p>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="level" class="col-md-3 text-md-right col-form-label">Admin</label>
-                        <div class="col-md-9 col-xl-8">
-                            <div class="badge badge-danger mt-2">
-                                False
-                            </div>
+                        <label for="level" class="col-md-3 text-md-right col-form-label">
+                            @Html.DisplayNameFor(model => model.IsAdmin)
+                        </label>
+                        <div class="col-md-9 col-xl-8 mt-2">
+                            @Html.DisplayFor(model => model.IsAdmin)
                         </div>
                     </div>
                 </div>

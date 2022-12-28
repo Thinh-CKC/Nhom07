@@ -7,7 +7,6 @@ namespace Nhom07.Models
     {
         public int ID { get; set; }
 
-
         [DisplayName("Tên sản phẩm")]
         [Required(ErrorMessage = "{0} không được bỏ trống")]
         public string TenSP { get; set; }
@@ -49,8 +48,7 @@ namespace Nhom07.Models
         // Collection navigation property cho khóa ngoại từ ChiTietHoaDon
         public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 
-        // Collection navigation property cho khóa ngoại từ ChiTietSanPham
-     
+        // Collection navigation property cho khóa ngoại từ HinhAnh
         public List<HinhAnh> HinhAnhs { get; set; }
 
     }

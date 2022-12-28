@@ -8,14 +8,12 @@ namespace Nhom07.Models
     {
         public int ID { get; set; }
 
-
         [DisplayName("Họ và tên")]
         public string HoTen { get; set; }
 
         [MaxLength(150)]
         [Required(ErrorMessage = "Vui lòng nhập Email")]
         [DataType(DataType.EmailAddress)]
-       
         public string Email { get; set; }
 
         [MaxLength(11)]
