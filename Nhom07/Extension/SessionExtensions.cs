@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebShop.Extension
+namespace Nhom07.Extension
 {
     public static class SessionExtensions
     {

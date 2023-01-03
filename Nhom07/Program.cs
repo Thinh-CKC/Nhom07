@@ -14,8 +14,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                 {
                     p.Cookie.Name = "UserLoginCookie";
                     p.ExpireTimeSpan = TimeSpan.FromDays(1);
-                    //p.LoginPath = "/dang-nhap.html";
-                    //p.LogoutPath = "/dang-xuat/html";
+                    p.LoginPath = "/Login";
+                    p.LogoutPath = "/Logout";
                     p.AccessDeniedPath = "/not-found.html";
                 });
 builder.Services.AddNotyf(config =>

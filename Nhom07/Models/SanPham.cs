@@ -8,16 +8,23 @@ namespace Nhom07.Models
         public int ID { get; set; }
 
 
+        [Required(ErrorMessage = "{0} không được bỏ trống")]
+        public string SKU { get; set; }
+
         [DisplayName("Tên sản phẩm")]
         [Required(ErrorMessage = "{0} không được bỏ trống")]
         public string TenSP { get; set; }
 
         [DisplayName("Loại sản phẩm")]
-        public int ID_LoaiSP { get; set; }
+    
+        public int LoaiSanPhamID { get; set; }
 
-        // Reference navigation property cho khóa ngoại đến LoaiSanPham 
+        // Reference navigation property cho khóa ngoại đến ProductType
         [DisplayName("Loại sản phẩm")]
         public LoaiSanPham LoaiSanPham { get; set; }
+
+        [DisplayName("Mô tả")]
+        public string Description { get; set; }
 
         [DisplayName("Size")]
         public string Size { get; set; }
@@ -49,8 +56,7 @@ namespace Nhom07.Models
         // Collection navigation property cho khóa ngoại từ ChiTietHoaDon
         public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 
-        // Collection navigation property cho khóa ngoại từ ChiTietSanPham
-     
+        // Collection navigation property cho khóa ngoại từ HinhAnh
         public List<HinhAnh> HinhAnhs { get; set; }
 
     }

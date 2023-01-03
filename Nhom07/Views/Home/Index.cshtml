@@ -1,5 +1,9 @@
-﻿@{
+﻿@model IEnumerable<Nhom07.Models.SanPham>
+
+@{
     ViewData["Title"] = "Home Page";
+
+   
 }
 
 <section>
@@ -104,20 +108,20 @@
                                 </div>
                                 <ul>
                                     <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="product.html">+ Quick View</a></li>
+                                    <li class="quick-view"><a href="/product/@item.ID">+ Quick View</a></li>
                                     <li class="w-icon"><a href=""><i class="fa fa-ramdom"></i></a></li>
                                 </ul>
                             </div>
                             <div class="pi-text">
-                                <div class="caragory-name">Coat</div>
+                                <div class="caragory-name"></div>
                                 <a href="">
                                     <h5>
-                                        Pure Pineapple
+                                        @item.TenSP
                                     </h5>
                                 </a>
                                 <div class="product-price">
 
-                                    <span>$35.88</span>
+                                    <span>@item.Gia.ToString("#,##0") VNĐ</span>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +179,7 @@
                                 </a>
                                 <div class="product-price">
 
-                                    <span>@item.Gia</span>
+                                    <span>@item.Gia.ToString("#,##0") VNĐ</span>
                                 </div>
                             </div>
                         </div>

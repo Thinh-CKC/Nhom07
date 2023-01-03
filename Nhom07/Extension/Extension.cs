@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace WebShop.Extension
+namespace Nhom07.Extension
 {
     public static class Extension
     {
-        public static string ToVnd(this int donGia)
-        {
-            return donGia.ToString("#,##0") + " đ";
-        }
+     
 
         public static string ToTitleCase(string str)
         {

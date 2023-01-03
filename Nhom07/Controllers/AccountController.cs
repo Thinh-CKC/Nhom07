@@ -3,18 +3,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Nhom07.Models;
 using Nhom7.Data;
-using WebShop.Extension;
+using Nhom07.Extension;
 using Nhom07.ModelViews;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
-using WebShop.Helpper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Nhom07.Controllers
 {
     public class AccountController : Controller
     {
-        private Nhom7Context _context;
+        private readonly Nhom7Context _context;
         public INotyfService _notyfService { get; }
         public AccountController(Nhom7Context context, INotyfService notyfService)
         {
@@ -22,7 +22,7 @@ namespace Nhom07.Controllers
             _notyfService = notyfService;
         }
         //Get register
-        //POST: Register
+       
 
         [HttpGet]
         [AllowAnonymous]
@@ -54,20 +54,8 @@ namespace Nhom07.Controllers
                     if (check == null)
                     { _context.Add(khachhang);
                         await _context.SaveChangesAsync();
-                            //Lưu Session MaKh
-                            HttpContext.Session.SetString("CustomerId", khachhang.ID.ToString());
-                            var taikhoanID = HttpContext.Session.GetString("CustomerId");
+                        
 
-                        //Identity
-                        var claims = new List<Claim>
-                            {
-
-                            new Claim(ClaimTypes.Name,khachhang.HoTen),
-                            new Claim("CustomerId", khachhang.ID.ToString())
-                            };
-                            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
-                            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                            await HttpContext.SignInAsync(claimsPrincipal);
                             _notyfService.Success("Đăng ký thành công");
                             return RedirectToAction("Login");
                     
@@ -91,62 +79,58 @@ namespace Nhom07.Controllers
            
 
         }
-        [HttpGet]
+        [AllowAnonymous]
         [Route("Login", Name = "DangNhap")]
         public IActionResult Login()
         {
-
+       
             return View();
         }
-
         [HttpPost]
+        [AllowAnonymous]
         [Route("Login", Name = "DangNhap")]
-        public async Task<IActionResult> Login( LoginViewModel taikhoan, string returnUrl)
+        public async Task<IActionResult> Login( LoginViewModel taikhoan)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    bool isEmail = Utilities.IsValidEmail(taikhoan.UserName);
-                    if (!isEmail) return View(taikhoan);
 
-                    var khachhang = _context.TaiKhoans.AsNoTracking().SingleOrDefault(x => x.Email.Trim() == taikhoan.UserName);
 
-                    string pass = taikhoan.Password.ToMD5();
-                    if (khachhang.Password != pass)
-                    {
-                        _notyfService.Error("Thông tin đăng nhập chưa chính xác");
-                        return View(taikhoan);
-                    }
-                 
-                    //Luu Session MaKh
-                    HttpContext.Session.SetString("CustomerId", khachhang.ID.ToString());
-                    var taikhoanID = HttpContext.Session.GetString("CustomerId");
+                    var khachhang = _context.TaiKhoans.Where(a => a.Email.Equals(taikhoan.UserName)).FirstOrDefault();
 
-                    //Identity
-                    var claims = new List<Claim>
+                    if(khachhang!=null)
                     {
-                        new Claim(ClaimTypes.Name, khachhang.HoTen),
-                        new Claim("CustomerId", khachhang.ID.ToString())
-                    };
-                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
-                    ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                    await HttpContext.SignInAsync(claimsPrincipal);
-                    _notyfService.Success("Đăng nhập thành công");
-                    if (string.IsNullOrEmpty(returnUrl))
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
+                        string pass = taikhoan.Password.ToMD5();
+                        if (khachhang.Password == pass)
+                        {
+                            var indentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, khachhang.HoTen) }, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                            var principal = new ClaimsPrincipal(indentity);
+                            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                            HttpContext.Session.SetString("Username", khachhang.Email);
+                            _notyfService.Success("Đăng nhập thành công");
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            _notyfService.Error("Thông tin đăng nhập chưa chính xác");
+                            return View(taikhoan);
+                        }
+                     
+                    }    
                     else
-                    {
-                        return Redirect(returnUrl);
+                            {
+                        _notyfService.Error("Tài khoản không tồn tại");
+                        return View(taikhoan);
+
                     }
                 }
             }
             catch
             {
-                _notyfService.Error("Tài khoản không tồn tại");
-              
+                _notyfService.Error("Lỗi");
+                return View(taikhoan);
             }
             return View(taikhoan);
 
@@ -156,9 +140,32 @@ namespace Nhom07.Controllers
         [Route("Logout", Name = "DangXuat")]
         public IActionResult Logout()
         {
-            HttpContext.SignOutAsync();
-            HttpContext.Session.Remove("CustomerId");
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
+            HttpContext.Session.Remove("Username");
             return RedirectToAction("Index", "Home");
+        }
+
+        [Route("my-account", Name = "TaiKhoan")]
+        public IActionResult MyAccount()
+        {
+            var taikhoanUsername = HttpContext.Session.GetString("Username");
+            if (taikhoanUsername != null)
+            {
+                var khachhang = _context.TaiKhoans.AsNoTracking().SingleOrDefault(x => x.Email == taikhoanUsername);
+                if (khachhang != null)
+                {
+                    var lsDonHang = _context.HoaDons
+                        .AsNoTracking()
+                        .Where(x => x.ID == khachhang.ID)
+                        .OrderByDescending(x => x.NgayTao)
+                        .ToList();
+                    ViewBag.DonHang = lsDonHang;
+                    return View(khachhang);
+                }
+
+            }
+            return RedirectToAction("Login");
         }
     }
 

@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<!-- Breadcrumb Section begin-->
+
+    }
+    <!-- Breadcrumb Section begin-->
       <div class="breacrumb-section">
           <div class="container">
               <div class="row">
@@ -95,7 +96,7 @@
                       <div class="row">
                           <div class="col-lg-6">
                               <div class="product-pic-zoom">
-                            <img class="product-big-img" src="~/img/products/@Html.DisplayFor(model=>model.Anh)" height="450" width="400" alt="">
+                            <img class="product-big-img" src="~/img/products/@Html.DisplayFor(model=>model.Anh)" height="400" width="350" alt="">
                                   <div class="zoom-icon">
                                       <i class="fa fa-search-plus"></i>
                                   </div>
@@ -104,7 +105,7 @@
                                   <div class="product-thumbs-track ps-slider owl-carousel">
 
                                 <div class="pt active" data-imgbigurl="img/products/@Html.DisplayFor(model=>model.Anh)">
-                                    <img src="~/img/products/@Html.DisplayFor(model=>model.Anh)" alt="">
+                                        <img src="~/img/products/@ViewBag.HinhAnhs" alt="">
                                       </div>
                               
               
@@ -123,7 +124,7 @@
                                       <p>
                                        
                                       </p>
-                                <h4 class="money">  @Html.DisplayFor(model=>model.Gia) VNĐ</h4>
+                                <h4 class="money">@Html.DisplayFor(model=>model.Gia) VNĐ</h4>
                                   </div>
                                   <div class="pd-color">
                                       <h6>WatchFace</h6>
@@ -163,16 +164,20 @@
   
                            
                                   <div class="quantity">
-                                      <div class="quantity">
-                                          <div class="pro-qty">
-                                              <input type="text" value="1" >
-                                          </div>
-                                          <a href="" class="primary-btn pd-cart">Add To Cart</a>
-                                      </div>
+
+                                <form asp-controller="Cart" asp-action="Add" asp-route-ProductId="@Model.ID">
+                                    <div class="input-group quantity mr-2" >
+                                        <label for="Quantity">Số lượng: </label>
+                                        <input name="Quantity" id="Quantity" type="number" value="1" min="1" class="form-control" style="width: 50px;" />
+                                    </div>
+                                    <button class="btn btn-warning">
+                                        Thêm vào giỏ hàng
+                                    </button>
+                                </form>
                                   </div>
                           
                                   <div class="pd-share">
-                                <div class="p-core">Sku: @Html.DisplayFor(model=>model.TonKho)</div>
+                                <div class="p-core">Sku: @Html.DisplayFor(model=>model.SKU)</div>
                                       <div class="pd-social">
                                           <a href="#"><i class="ti-facebook"></i></a>
                                           <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -204,7 +209,7 @@
                                               <td class="p-catagory">Price</td>
                                               <td>
                                                   <div class="p-price">
-                                                    @Html.DisplayFor(model=>model.Gia)
+                                                    @Html.DisplayFor(model=>model.Gia) VNĐ
                                                  
                                                   </div>
                                               </td>
@@ -245,7 +250,7 @@
                                           <tr>
                                               <td class="p-catagory">Sku</td>
                                               <td>
-                                                  <div class="p-code"></div>
+                                                <div class="p-code">@Html.DisplayFor(model=>model.SKU)</div>
                                               </td>
                                           </tr>
       
@@ -262,3 +267,4 @@
           </div>
       </section>
       <!-- product shop Section begin -->
+

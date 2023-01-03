@@ -7,7 +7,7 @@ namespace Nhom07.Models
         public int ID { get; set; }
 
         [DisplayName("Sản phẩm")]
-        public int ID_SanPham { get; set; }
+        public int SanPhamID { get; set; }
 
         // Reference navigation property cho khóa ngoại đến SanPham 
         [DisplayName("Sản phẩm")]

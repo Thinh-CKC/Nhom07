@@ -8,7 +8,7 @@ namespace Nhom07.Models
         public int ID { get; set; }
 
         [DisplayName("Khách hàng")]
-        public int ID_TaiKhoan { get; set; }
+        public int TaiKhoanID { get; set; }
 
         // Reference navigation property cho khóa ngoại đến TaiKhoan 
         [DisplayName("Khách hàng")]
@@ -16,6 +16,8 @@ namespace Nhom07.Models
 
         [DisplayName("Ngày tạo")]
         public DateTime NgayTao { get; set; }
+
+        public DateTime NgayGiao { get; set; }
 
         [DisplayName("Tổng tiền")]
         [DisplayFormat(DataFormatString = "{0:n0}")]

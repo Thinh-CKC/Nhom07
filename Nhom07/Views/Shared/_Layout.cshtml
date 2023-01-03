@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="~/css/jquery-ui.min.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/style.css" type="text/css" asp-append-version="true">
+   
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/assets1/css/style.css" rel="stylesheet">
+
 </head>
 <body>
     <header class="header-section">
@@ -85,23 +93,30 @@
                                         <h5>5.000.000</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="shopping-cart.html" class="primary-btn view-card">VIEW CART</a>
+                                        <a href="/cart" class="primary-btn view-card">VIEW CART</a>
                                         <a href="check-out.html" class="primary-btn check-out">CHECK OUT</a>
                                     </div>
                                 </div>
                             </li>
-                            <li class="cart-icon ml-5">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                    <a href="/logout" class="login-panel"><i class="fa fa-user-o"></i>Logout</a>
-                            }
-                            else
-                            {
-                                    <a href="/login" class="login-panel"><i class="fa fa-user-o"></i>Login</a>
-
-                            }
-                               
-                            </li>
+                      
+                        
+                                <li class="login-panel">
+                                    <button class="btn dropdown-toggle ht-btn p-0" type="button" id="settingButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButton">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                        <li><a class="dropdown-item" href="/my-account">Cài đặt tài khoản</a></li>
+                                        <li><a class="dropdown-item" href="/Logout">Đăng Xuất</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a class="dropdown-item" href="/Register">Đăng ký tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="/Login">Đăng nhập</a></li>
+                                        }
+                                    </ul>
+                                </li>
                         </ul>
                     </div>
                 </div>
@@ -126,7 +141,7 @@
                             <a href="">More</a>
                             <ul class="dropdown">
                                 <li><a href="">Shopping Cart</a></li>
-                                <li><a href="">Checkout</a></li>
+                                <li><a href="/my-account">My Account</a></li>
                                 <li><a href="">Resister</a></li>
                             </ul>
                         </li>
@@ -231,6 +246,13 @@
     <script src="~/js/jquery.slicknav.js"></script>
     <script src="~/js/owl.carousel.min.js"></script>
 
+    <!-- Vendor JS -->
+    <script src="~/assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+
+    <!--Plugins JS-->
+
+    <script src="~/assets1/js/main.js"></script>
 
 
     <script src="~/js/main.js"></script>
