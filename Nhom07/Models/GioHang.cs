@@ -9,14 +9,14 @@ namespace Nhom07.Models
         public int ID { get; set; }
 
         [DisplayName("Khách hàng")]
-        public int ID_TaiKhoan { get; set; }
+        public int TaiKhoanID { get; set; }
 
         // Reference navigation property cho khóa ngoại đến TaiKhoan
         [DisplayName("Khách hàng")]
         public TaiKhoan TaiKhoan { get; set; }
 
         [DisplayName("Sản phẩm")]
-        public int ID_SanPham { get; set; }
+        public int SanPhamID { get; set; }
 
         // Reference navigation property cho khóa ngoại đến SanPham
         [DisplayName("Sản phẩm")]

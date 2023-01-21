@@ -9,7 +9,7 @@ namespace Nhom07.Models
 
         [DisplayName("Hóa đơn")]
         [Required(ErrorMessage = "{0} không được bỏ trống")]
-        public int ID_HoaDon { get; set; }
+        public int HoaDonID { get; set; }
 
         // Reference navigation property cho khóa ngoại đến HoaDon
         [DisplayName("Hóa đơn")]
@@ -17,7 +17,7 @@ namespace Nhom07.Models
 
         [DisplayName("Sản phẩm")]
         [Required(ErrorMessage = "{0} không được bỏ trống")]
-        public int ID_SanPham { get; set; }
+        public int SanPhamID { get; set; }
 
         // Reference navigation property cho khóa ngoại đến SanPham
         [DisplayName("Sản phẩm")]

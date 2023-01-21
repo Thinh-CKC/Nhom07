@@ -7,12 +7,16 @@ namespace Nhom07.Models
     {
         public int ID { get; set; }
 
+        [DisplayName("SKU")]
+        [Required(ErrorMessage = "{0} không được bỏ trống")]
+        public int SKU { get; set; }
+
         [DisplayName("Tên sản phẩm")]
         [Required(ErrorMessage = "{0} không được bỏ trống")]
         public string TenSP { get; set; }
 
         [DisplayName("Loại sản phẩm")]
-        public int ID_LoaiSP { get; set; }
+        public int LoaiSanPhamID { get; set; }
 
         // Reference navigation property cho khóa ngoại đến LoaiSanPham 
         [DisplayName("Loại sản phẩm")]
@@ -24,14 +28,15 @@ namespace Nhom07.Models
         [DisplayName("Màu sắc")]
         public string MauSac { get; set; }
 
-        [DisplayName("Tồn kho")]
-        public int TonKho { get; set; }
-
         [DisplayName("Mặt kính")]
         public string MatKinh { get; set; }
 
         [DisplayName("Loại dây")]
         public string LoaiDay { get; set; }
+
+        [DisplayName("Tồn kho")]
+        public int TonKho { get; set; }
+        
         [DisplayName("Hình ảnh")]
         public string Anh { get; set; }
 
