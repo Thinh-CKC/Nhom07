@@ -24,7 +24,8 @@ namespace Nhom07.Models
         [DataType(DataType.PhoneNumber)]
         public string SDT { get; set; }
 
-        [DisplayName("Địa chỉ")]
+        [Display(Name = "Địa chỉ")]
+        [Required(ErrorMessage = "Vui lòng nhập Địa chỉ")]
         public string DiaChi { get; set; }
 
         [Display(Name = "Mật khẩu")]

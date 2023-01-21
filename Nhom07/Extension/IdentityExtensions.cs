@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace WebShop.Extension
+namespace Nhom07.Extension
 {
     public static class IdentityExtensions
     {

@@ -180,7 +180,7 @@
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="w-icon active"><a asp-controller="Cart" asp-action="Add" asp-route-ProductId="@item.ID"><i class="icon_bag_alt"></i></a></li>
                                             <li class="quick-view"><a href="/product/@item.ID">+ Quick View</a></li>
                                             <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
                                         </ul>

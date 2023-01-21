@@ -8,7 +8,7 @@ namespace Nhom07.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private Nhom7Context _context;
+        private readonly Nhom7Context _context;
         public HomeController(Nhom7Context context, ILogger<HomeController> logger)
         {
             _context = context;
@@ -20,8 +20,8 @@ namespace Nhom07.Controllers
         public IActionResult Index()
         {
 
-            var men = _context.SanPhams.Where(x => x.NoiBat == true).Where(x => x.ID_LoaiSP == 1).ToList();
-            var women = _context.SanPhams.Where(x => x.NoiBat == true).Where(x => x.ID_LoaiSP == 2).ToList();
+            var men = _context.SanPhams.Where(x => x.NoiBat == true).Where(x => x.LoaiSanPhamID == 1).ToList();
+            var women = _context.SanPhams.Where(x => x.NoiBat == true).Where(x => x.LoaiSanPhamID == 2).ToList();
             var product = _context.SanPhams.ToList();
             ViewBag.men=men;
             ViewBag.women=women;

@@ -16,7 +16,7 @@ namespace Nhom7.Data
         public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<HoaDon> HoaDons { get; set; }
         public DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public DbSet<Nhom07.ModelViews.RegisterViewModel> RegisterViewModel { get; set; }
+       // public DbSet<Nhom07.ModelViews.RegisterViewModel> RegisterViewModel { get; set; }
 
 
     }

@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebShop.Extension
+namespace Nhom07.Extension
 {
     public static class HashMD5
     {
