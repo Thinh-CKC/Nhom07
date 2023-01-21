@@ -50,6 +50,7 @@
                                         </td>
                                         <td class="p-price first-row">@item.SanPham.Gia.ToString("#,##0") VNĐ</td>
                                         <td class="qua-col first-row">
+
                                             <div class="input-group quantity " style="width: 100px;">
                                                 <form asp-action="UpdateQuantity" asp-route-id="@item.ID">
                                                     <div class="input-group quantity mx-auto" style="width: 100px;">
@@ -58,7 +59,7 @@
                                                                 <i class="fa fa-minus"></i>
                                                             </button>
                                                         </div>
-                                                        <input type="text" name="quantity" class="form-control form-control-sm text-center" value="@item.SoLuong" min="1">
+                                                        <input type="text" name="quantity" class="form-control form-control-sm text-center" value="@item.SoLuong">
                                                         <div class="input-group-btn">
                                                             <button class="btn btn-sm btn-plus">
                                                                 <i class="fa fa-plus"></i>

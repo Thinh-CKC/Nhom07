@@ -51,7 +51,7 @@ namespace Nhom07.Controllers
                 {
                     TaiKhoanID = accountsId,
                     SanPhamID = ProductId,
-                    SoLuong = Quantity
+                    SoLuong = Quantity =1
                 };
                 _context.GioHangs.Add(cart);
             }

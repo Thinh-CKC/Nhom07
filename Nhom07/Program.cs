@@ -14,13 +14,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                 {
                     p.Cookie.Name = "UserLoginCookie";
                     p.ExpireTimeSpan = TimeSpan.FromDays(1);
-                    p.LoginPath = "/Login";
-                    p.LogoutPath = "/Logout";
+                   // p.LoginPath = "/Login";
+                   // p.LogoutPath = "/Logout";
                     p.AccessDeniedPath = "/not-found.html";
                 });
 builder.Services.AddNotyf(config =>
 {
-    config.DurationInSeconds = 3;
+    config.DurationInSeconds = 2;
     config.IsDismissable = true;
     config.Position = NotyfPosition.TopRight;
 });
